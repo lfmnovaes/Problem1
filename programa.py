@@ -2,6 +2,7 @@
 
 import sys
 
+#Exemplos de entrada
 #python programa.py 3 3 -1,0,-1,0,0,-1,-1,-1,-1 0,1 -v
 #python programa.py 3 3 -1,0,-1,-1,0,-1,-1,0,-1 0,1 -v
 #python programa.py 4 4 -1,0,-1,-1,-1,0,-1,-1,-1,0,-1,-1,-1,0,-1,-1 0,1 -v
@@ -18,7 +19,7 @@ def main(argv):
 	if (sys.argv[len(sys.argv)-1] == "-v"):
 		verbose = True
 
-	if verbose: print 'starter labirynth'
+	if verbose: print 'starter maze'
 	for i in range(0, row):
 		for j in range(0, column):
 			labmap[i][j] = int(lab[i*row+j])
@@ -29,9 +30,6 @@ def main(argv):
 	coord = start
 	path = []
 	path.append(coord)
-	if verbose:
-		print 'path inicial', path
-		print 'coord inicial', coord
 	checking = True
 	mappath = labmap
 	bifu = []
@@ -62,14 +60,22 @@ def main(argv):
 			#print 'else'
 			checking = False
 	
-	if verbose:
-		print 'path', path
+	if verbose:	print 'path took', path
 	
-	print 'final labirynth'
+	if verbose: print 'final maze'
 	for i in range(0, row):
 		for j in range(0, column):
-			print mappath[i][j],
-		print ''
+			lab[i*row+j] = mappath[i][j]
+			if verbose: print mappath[i][j],
+		if verbose: print ''
+	
+	
+	
+	if (0 in lab) and (len(path) < min(row, column)):
+		print 0
+	else:
+		if not verbose:
+			print ','.join(str(e) for e in lab)
 
 if __name__ == "__main__":
 	main(sys.argv[1:])
