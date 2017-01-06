@@ -57,7 +57,6 @@ def main(argv):
 			mappath[coord[0]][coord[1]-1] = 1
 			coord = [coord[0],coord[1]-1]
 		else:
-			#print 'else'
 			checking = False
 	
 	if verbose:	print 'path took', path
@@ -68,8 +67,6 @@ def main(argv):
 			lab[i*row+j] = mappath[i][j]
 			if verbose: print mappath[i][j],
 		if verbose: print ''
-	
-	
 	
 	if (0 in lab) and (len(path) < min(row, column)):
 		print 0
