@@ -10,8 +10,7 @@ Example: python programa.py 3 3 -1,0,-1,0,0,-1,-1,-1,-1 1,1
     - The string representing the labyrinth will always consist of integers, separated by commas, without spaces
         - the integer -1 represents a wall
         - the integer 0 represents a path
-    - The string representing the starting point will always consist of 2 integers, separated by a comma, without spaces.
-Being row and column respectively
+    - The string representing the starting point will always consist of 2 integers, separated by a comma, without spaces. Being row and column respectively
 
     For the current example, the representation in an array would be:
 
